@@ -1,30 +1,33 @@
 {
   "dependencies": {
-    "@prisma/client": "^7.2.0",
     "asterisk-manager": "^0.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
     "express": "^5.2.1",
     "http": "^0.0.1-security",
+    "mysql2": "^3.16.0",
     "neverthrow": "^8.2.0",
+    "node-cron": "^4.2.1",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
     "ws": "^8.19.0"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/server.ts",
-    "db:migrate:dev": "npx prisma migrate dev",
-    "db:migrate:deploy": "npx prisma migrate deploy",
-    "db:migrate:generate": "npx prisma generate"
+    "build": "tsc && tsc-alias",
+    "start": "node dist/server.js",
+    "dev": "ts-node -r tsconfig-paths/register src/server.ts",
+    "db:migrate:generate": "npx drizzle-kit generate",
+    "db:migrate:deploy": "npx drizzle-kit migrate"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.3",
     "@types/ws": "^8.18.1",
-    "prisma": "^7.2.0",
+    "drizzle-kit": "^0.31.8",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3"
   }
 }

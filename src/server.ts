@@ -1,13 +1,7 @@
-import dotenv from 'dotenv';
+import 'dotenv/config'
 
-import { getSocket } from './helpers/socket'
+import { startSocket } from './services/socket'
+import { syncFreePBXDatabaseJob } from './services/syncFreePBXDatabaseJob'
 
-dotenv.config()
-
-getSocket()
-
-
-
-
-
-
+startSocket()
+syncFreePBXDatabaseJob()
