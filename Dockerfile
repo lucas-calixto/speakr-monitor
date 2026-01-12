@@ -7,7 +7,7 @@ RUN npm install --production
 
 COPY . .
 
-RUN npm run build
+RUN npm start
 
 EXPOSE 8800
 
