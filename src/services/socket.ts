@@ -20,7 +20,7 @@ import { type callType } from '../types/call'
 export function startSocket() {
   const { setCallsHistory, getThisCall, updateStatus } = CallsHistoryModel
 
-  const socket = io('http://apimonitor.speakr.com.br:3002', {
+  const socket = io(`${process.env.SOCKET_URL}`, {
     transports: ['websocket'],
     reconnection: true,
     reconnectionAttempts: 30,
