@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: speakr_mysql
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+    ports:
+      - '3306:3306'
