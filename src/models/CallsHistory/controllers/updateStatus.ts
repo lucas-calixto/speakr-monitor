@@ -1,6 +1,6 @@
-import { db } from '@/db'
-import { callsHistory } from '@/db/schema'
-import { eq } from 'drizzle-orm'
+import { db } from "@/db";
+import { callsHistory } from "@/db/schema";
+import { eq } from "drizzle-orm";
 
 /**
  * Função para atualizar as informações da chamada.
@@ -10,34 +10,42 @@ import { eq } from 'drizzle-orm'
  * @param linkedid (id da chamada)
  * @returns A chamada atualizada
  */
-export const updateStatus = async (
-  linkedid: string,
-  status: string,
-  show: boolean
-) => {
+
+interface UpdateStatusProps {
+  linkedid: string;
+  status: string;
+  show: boolean;
+  exten: string;
+}
+
+export const updateStatus = async (props: UpdateStatusProps) => {
+  const { linkedid, status, show, exten } = props;
+
   try {
     const updateData: {
-      status: string
-      showOnPanel: boolean
-      holdTime?: string
+      status: string;
+      showOnPanel: boolean;
+      holdTime?: string;
+      exten: string;
     } = {
       status: status,
       showOnPanel: show,
-    }
+      exten: exten,
+    };
 
     const response = await db
       .update(callsHistory)
       .set(updateData)
-      .where(eq(callsHistory.linkId, linkedid))
+      .where(eq(callsHistory.linkId, linkedid));
 
     if (response) {
-      console.log('Chamada atualizada no banco de dados.')
-      return response
+      console.log("Chamada atualizada no banco de dados.");
+      return response;
     } else {
       console.warn(
-        'Não foi possível atualizar a chamada. Provavelmente essa chamada não foi adicionada no momento da ligação'
-      )
-      return null
+        "Não foi possível atualizar a chamada. Provavelmente essa chamada não foi adicionada no momento da ligação",
+      );
+      return null;
     }
   } catch (error) {
     // if (error instanceof Prisma.PrismaClientKnownRequestError) {
@@ -46,4 +54,4 @@ export const updateStatus = async (
     //   console.error(`Erro ao atualizar chamada: ${error}`)
     // }
   }
-}
+};
