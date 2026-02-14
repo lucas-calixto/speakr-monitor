@@ -15,24 +15,22 @@ interface UpdateStatusProps {
   linkedid: string;
   status: string;
   show: boolean;
-  exten?: string;
+  extension?: string;
 }
 
 export const updateStatus = async (props: UpdateStatusProps) => {
-  const { linkedid, status, show, exten } = props;
-
-  console.log(`Exten: ${exten}`);
+  const { linkedid, status, show, extension } = props;
 
   try {
     const updateData: {
       status: string;
       showOnPanel: boolean;
-      exten?: string;
+      extension?: string;
       holdTime?: string;
     } = {
       status: status,
       showOnPanel: show,
-      exten,
+      extension,
     };
 
     const response = await db

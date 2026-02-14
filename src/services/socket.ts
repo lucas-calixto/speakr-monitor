@@ -166,7 +166,7 @@ export function startSocket() {
           linkedid: event.linkedid,
           status: "Atendido",
           show: true,
-          exten: event?.destchannel?.slice(6, 13) || "",
+          extension: event?.destchannel?.slice(6, 13) || "",
         });
         const response = await getThisCall(event.linkedid);
         if (response) {
