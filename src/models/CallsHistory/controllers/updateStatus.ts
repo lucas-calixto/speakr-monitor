@@ -21,12 +21,14 @@ interface UpdateStatusProps {
 export const updateStatus = async (props: UpdateStatusProps) => {
   const { linkedid, status, show, exten } = props;
 
+  console.log(`Exten: ${exten}`);
+
   try {
     const updateData: {
       status: string;
       showOnPanel: boolean;
-      holdTime?: string;
       exten: string;
+      holdTime?: string;
     } = {
       status: status,
       showOnPanel: show,
