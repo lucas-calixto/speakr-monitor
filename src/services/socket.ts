@@ -87,7 +87,6 @@ export function startSocket() {
           linkedid: event.linkedid,
           status: "Encerrado",
           show: false,
-          exten: event?.exten || "",
         });
         const response = await getThisCall(event.linkedid);
         if (response) {

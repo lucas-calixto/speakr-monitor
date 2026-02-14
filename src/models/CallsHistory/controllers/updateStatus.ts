@@ -15,7 +15,7 @@ interface UpdateStatusProps {
   linkedid: string;
   status: string;
   show: boolean;
-  exten: string;
+  exten?: string;
 }
 
 export const updateStatus = async (props: UpdateStatusProps) => {
@@ -27,12 +27,12 @@ export const updateStatus = async (props: UpdateStatusProps) => {
     const updateData: {
       status: string;
       showOnPanel: boolean;
-      exten: string;
+      exten?: string;
       holdTime?: string;
     } = {
       status: status,
       showOnPanel: show,
-      exten: exten,
+      exten,
     };
 
     const response = await db
