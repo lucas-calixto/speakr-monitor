@@ -4,7 +4,7 @@ module.exports = {
       name: 'monitor-backend',
       script: 'npm',
       args: 'start',
-      instances: 'max',
+      instances: 1,
       exec_mode: 'fork',
       env: {
         NODE_ENV: 'production',
