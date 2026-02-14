@@ -52,7 +52,7 @@ npm i || error "Falha ao instalar dependências"
 
 # 3. Build
 log "🔨 Compilando aplicação..."
-npm build || error "Falha na compilação"
+npm run build || error "Falha na compilação"
 
 # 4. Reiniciar servidor de produção
 log "🔄 Reiniciando aplicação com PM2..."
