@@ -4,6 +4,6 @@ export type callType = {
   uniqueid: string;
   linkedid: string;
   phoneNumber: string | null;
-  exten: string;
+  extension: string;
   showOnPanel: boolean;
 };

@@ -126,7 +126,7 @@ export function startSocket() {
         uniqueid: event.uniqueid,
         linkedid: event.linkedid,
         phoneNumber: event?.calleridnum,
-        exten: "",
+        extension: "",
         showOnPanel: true,
       };
 
@@ -148,7 +148,7 @@ export function startSocket() {
           linkedid: event.linkedid,
           status: "Abandonado",
           show: false,
-          exten: "",
+          extension: "",
         });
         const response = await getThisCall(event.linkedid);
 
