@@ -56,7 +56,7 @@ npm build || error "Falha na compilação"
 
 # 4. Reiniciar servidor de produção
 log "🔄 Reiniciando aplicação com PM2..."
-pm2 restart backend || error "Falha ao reiniciar com PM2"
+pm2 restart monitor-backend || error "Falha ao reiniciar com PM2"
 
 echo ""
 echo "=========================================="
